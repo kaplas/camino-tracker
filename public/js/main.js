@@ -26,6 +26,42 @@ var routingParameters = {
   'representation': 'display'
 };
 
+var frenchWayRoutingParameters = {
+  'mode': 'fastest;pedestrian;traffic:disabled;motorway:-2',
+  'representation': 'display',
+
+  'waypoint0': 'geo!43.165,-1.2356',
+  'waypoint1': 'geo!43,-1.316667',
+  'waypoint2': 'geo!42.93113,-1.50437',
+  'waypoint3': 'geo!42.816667,-1.65',
+  'waypoint4': 'geo!42.671117,-1.818736',
+  'waypoint5': 'geo!42.666667,-2.016667',
+  'waypoint6': 'geo!42.5683,-2.19218',
+  'waypoint7': 'geo!42.465,-2.445556',
+  'waypoint8': 'geo!42.416667,-2.733333',
+  'waypoint9': 'geo!42.441944,-2.9525',
+  'waypoint10': 'geo!42.41884,-3.19125',
+  'waypoint11': 'geo!42.37576,-3.43634',
+  'waypoint12': 'geo!42.35,-3.706667',
+  'waypoint13': 'geo!42.287778,-4.138889',
+  'waypoint14': 'geo!42.26786,-4.40502',
+  'waypoint15': 'geo!42.333333,-4.6',
+  'waypoint16': 'geo!42.371944,-5.030278',
+  'waypoint17': 'geo!42.422778,-5.221389',
+  'waypoint18': 'geo!42.605556,-5.57',
+  'waypoint19': 'geo!42.51721,-5.76632',
+  'waypoint20': 'geo!42.458889,-6.063333',
+  'waypoint21': 'geo!42.48084,-6.28398',
+  'waypoint22': 'geo!42.55,-6.583333',
+  'waypoint23': 'geo!42.6075,-6.8075',
+  'waypoint24': 'geo!42.72599,-7.01938',
+  'waypoint25': 'geo!42.7802,-7.41375',
+  'waypoint26': 'geo!42.80623,-7.61817',
+  'waypoint27': 'geo!42.873611,-7.869444',
+  'waypoint28': 'geo!42.92676,-8.16359',
+  'waypoint29': 'geo!42.877778,-8.544444'
+};
+
 // Define a callback function to process the routing response:
 var onResult = function(result) {
   var route,
@@ -54,7 +90,7 @@ var onResult = function(result) {
 
     // Create a polyline to display the route:
     var routeLine = new H.map.Polyline(strip, {
-      style: { strokeColor: 'blue', lineWidth: 10 }
+      style: { strokeColor: 'yellow', lineWidth: 2 }
     });
 
     // Add the route polyline and the two markers to the map:
@@ -82,6 +118,7 @@ addMarkerForCrucialPoint(42.605556, -5.57, 'Temp place (Leon)'); // TEMP
 addMarkerForCrucialPoint(43.165, -1.2356, 'Saint-Jean-Pied-de-Port');
 addMarkerForCrucialPoint(42.877778, -8.544444, 'Santiago de Compostela');
 
+
 // Center map to those crucial points
 function recenterMap() {
   map.getViewPort().resize();
@@ -93,15 +130,14 @@ recenterMap();
 window.addEventListener('resize', recenterMap);
 
 
-/*
+
 // Get an instance of the routing service:
 var router = platform.getRoutingService();
 
 // Call calculateRoute() with the routing parameters,
 // the callback and an error callback function (called if a
 // communication error occurs):
-router.calculateRoute(routingParameters, onResult,
+router.calculateRoute(frenchWayRoutingParameters, onResult,
   function(error) {
     alert(error.message);
   });
-*/
