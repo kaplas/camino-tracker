@@ -14,9 +14,17 @@ var map = new H.Map(
   document.getElementById('mapContainer'),
   defaultLayers.normal.map,
   {
-  zoom: 10,
-  center: { lat: 52.51, lng: 13.4 }
+    zoom: 10,
+    center: { lat: 52.51, lng: 13.4 }
   });
+
+var ui = H.ui.UI.createDefault(map, defaultLayers, 'fi-FI');
+var mapEvents = new H.mapevents.MapEvents(map);
+var behavior = new H.mapevents.Behavior(mapEvents);
+
+window.addEventListener('resize', function () {
+    map.getViewPort().resize();
+});
 
 // Create the parameters for the routing request:
 var routingParameters = {
