@@ -56,7 +56,9 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
+.bubble-text {
+    font-size: 0.5em;
+}
 
 
 
