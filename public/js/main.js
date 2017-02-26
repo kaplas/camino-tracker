@@ -15,8 +15,10 @@ var map = new H.Map(
   defaultLayers.normal.map,
   {
     zoom: 10,
-    center: { lat: 52.51, lng: 13.4 }
+    center: { lat: 52.51, lng: 13.4 },
+    imprint: null
   });
+map.setBaseLayer(defaultLayers.terrain.map);
 
 var ui = H.ui.UI.createDefault(map, defaultLayers, 'fi-FI');
 var mapEvents = new H.mapevents.MapEvents(map);
