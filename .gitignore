@@ -24,6 +24,7 @@ coverage
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
+build
 build/Release
 
 # Dependency directories
@@ -39,5 +40,6 @@ jspm_packages
 # OSX
 .DS_Store
 
-# Sublime text
+# Development
 *.sublime-workspace
+*.env

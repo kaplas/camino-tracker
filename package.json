@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/kaplas/camino-tracker/issues"
   },
-  "homepage": "https://github.com/kaplas/camino-tracker#readme"
+  "homepage": "https://github.com/kaplas/camino-tracker#readme",
+  "dependencies": {
+    "csvtojson": "^1.1.4",
+    "moment": "^2.17.1",
+    "node-fetch": "^1.6.3"
+  }
 }
