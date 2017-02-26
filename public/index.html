@@ -15,11 +15,20 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
             <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
         <![endif]-->
+
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+            type="text/javascript" charset="utf-8"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+            type="text/javascript" charset="utf-8"></script>
     </head>
     <body>
 
         <p>Hello world! This is HTML5 Boilerplate.</p>
 
+        <div id="mapContainer" style="width: 400px; height: 400px;"></div>
+
+        <script src="js/location-data.js"></script>
+        <script src="js/secrets.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
