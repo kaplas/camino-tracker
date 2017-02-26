@@ -90,7 +90,7 @@ var onResult = function(result) {
 
     // Create a polyline to display the route:
     var routeLine = new H.map.Polyline(strip, {
-      style: { strokeColor: 'yellow', lineWidth: 2 }
+      style: { strokeColor: 'yellow', lineWidth: 4 }
     });
 
     // Add the route polyline and the two markers to the map:
@@ -121,6 +121,17 @@ var lastEntry = window.locationEntries[window.locationEntries.length - 1];
 //addMarkerForCrucialPoint(lastEntry.latitude, lastEntry.longitude, lastEntry.place);
 addMarkerForCrucialPoint(42.605556, -5.57, 'Temp place (Leon)'); // TEMP
 
+// Stupid calculation for getting distance to Santiage de Compostela
+var stJeanPoint = new H.geo.Point(43.165, -1.2356);
+var santiagoPoint = new H.geo.Point(42.877778, -8.544444);
+//var myPoint = new H.geo.Point(lastEntry.latitude, lastEntry.longitude);
+var myPoint = new H.geo.Point(42.605556, -5.57);
+var doneKm = myPoint.distance(stJeanPoint);
+var leftKm = myPoint.distance(santiagoPoint);
+window.DISTANCE_LEFT = Math.round((leftKm / (doneKm + leftKm)) * 769); // French Route is actually 769 km
+console.log(window.DISTANCE_LEFT + " km matkaa jäljellä...");
+
+// Add map markers for most important location entries
 window.locationEntries.forEach(function(entry) {
   if (entry !== lastEntry && entry.marker) {
     addMarker(entry.latitude, entry.longitude);
