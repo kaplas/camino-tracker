@@ -24,7 +24,10 @@
   },
   "homepage": "https://github.com/kaplas/camino-tracker#readme",
   "dependencies": {
+    "array.prototype.find": "^2.0.3",
+    "bluebird": "^3.4.7",
     "csvtojson": "^1.1.4",
+    "lodash.get": "^4.4.2",
     "moment": "^2.17.1",
     "node-fetch": "^1.6.3"
   }
