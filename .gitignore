@@ -43,3 +43,4 @@ jspm_packages
 # Development
 *.sublime-workspace
 *.env
+test-data.js
