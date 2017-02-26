@@ -98,10 +98,13 @@ var onResult = function(result) {
   }
 };
 
+function addMarker(lat, lon) {
+  map.addObject(new H.map.Marker({ lat: lat, lng: lon }));
+}
+
 function addMarkerAndBubble(lat, lon, text) {
-  var coords = { lat: lat, lng: lon };
-  map.addObject(new H.map.Marker(coords));
-  ui.addBubble(new H.ui.InfoBubble(coords,
+  addMarker(lat, lon);
+  ui.addBubble(new H.ui.InfoBubble({ lat: lat, lng: lon },
     { content: '<span class="bubble-text">' + text + '</span>' }));
 }
 
@@ -112,12 +115,17 @@ function addMarkerForCrucialPoint(lat, lon, text) {
 }
 
 // Add known start and end locations as well as my current location
+addMarkerForCrucialPoint(43.165, -1.2356, 'Saint-Jean-Pied-de-Port');
+addMarkerForCrucialPoint(42.877778, -8.544444, 'Santiago de Compostela');
 var lastEntry = window.locationEntries[window.locationEntries.length - 1];
 //addMarkerForCrucialPoint(lastEntry.latitude, lastEntry.longitude, lastEntry.place);
 addMarkerForCrucialPoint(42.605556, -5.57, 'Temp place (Leon)'); // TEMP
-addMarkerForCrucialPoint(43.165, -1.2356, 'Saint-Jean-Pied-de-Port');
-addMarkerForCrucialPoint(42.877778, -8.544444, 'Santiago de Compostela');
 
+window.locationEntries.forEach(function(entry) {
+  if (entry !== lastEntry && entry.marker) {
+    addMarker(entry.latitude, entry.longitude);
+  }
+});
 
 // Center map to those crucial points
 function recenterMap() {
