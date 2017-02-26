@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e  # stop on error
 
 # Adapted from http://stackoverflow.com/a/4774063
 pushd `dirname $0` > /dev/null
