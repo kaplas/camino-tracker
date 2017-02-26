@@ -1,0 +1,26 @@
+{
+  "name": "camino-tracker",
+  "version": "1.0.0",
+  "description": "Map generator script for my pilgrimage of Santiago de Compostela",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaplas/camino-tracker.git"
+  },
+  "keywords": [
+    "camino",
+    "santiago",
+    "compostela",
+    "tracker",
+    "gps"
+  ],
+  "author": "Jouni Kaplas <jouni.kaplas@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaplas/camino-tracker/issues"
+  },
+  "homepage": "https://github.com/kaplas/camino-tracker#readme"
+}
