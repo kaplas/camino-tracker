@@ -1,3 +1,28 @@
+/* --------------------------------
+LANGUAGE SELECTION
+-------------------------------- */
+
+function toggleDisplay(selector, value) {
+  var divs = document.querySelectorAll(selector);
+  [].forEach.call(divs, function(el) {
+    el.style.display = value;
+  });
+}
+
+function showFinnish() {
+  toggleDisplay('.finnish', 'block');
+  toggleDisplay('.english', 'none');
+}
+
+function showEnglish() {
+  toggleDisplay('.english', 'block');
+  toggleDisplay('.finnish', 'none');
+}
+
+/* --------------------------------
+MAP
+-------------------------------- */
+
 // Get the HERE Maps platform object
 var platform = new H.service.Platform({
   'app_id': window.HERE_APP_ID,
@@ -5,7 +30,7 @@ var platform = new H.service.Platform({
 });
 
 // Initialize the map
-var mapContainerEl = document.getElementById('mapContainer');
+var mapContainerEl = document.getElementById('map-container');
 var defaultLayers = platform.createDefaultLayers();
 var map = new H.Map(mapContainerEl, defaultLayers.terrain.map,
   { zoom: 10, /*center: { lat: 52.51, lng: 13.4 },*/ imprint: null });
@@ -118,18 +143,20 @@ function addMarkerForCrucialPoint(lat, lon, text) {
 addMarkerForCrucialPoint(43.165, -1.2356, 'Saint-Jean-Pied-de-Port');
 addMarkerForCrucialPoint(42.877778, -8.544444, 'Santiago de Compostela');
 var lastEntry = window.locationEntries[window.locationEntries.length - 1];
-//addMarkerForCrucialPoint(lastEntry.latitude, lastEntry.longitude, lastEntry.place);
-addMarkerForCrucialPoint(42.605556, -5.57, 'Temp place (Leon)'); // TEMP
+var distanceLeft = '769';
+if (lastEntry) {
+  addMarkerForCrucialPoint(lastEntry.latitude, lastEntry.longitude, lastEntry.place);
+  //addMarkerForCrucialPoint(42.605556, -5.57, 'Temp place (Leon)'); // TEMP
 
-// Stupid calculation for getting distance to Santiage de Compostela
-var stJeanPoint = new H.geo.Point(43.165, -1.2356);
-var santiagoPoint = new H.geo.Point(42.877778, -8.544444);
-//var myPoint = new H.geo.Point(lastEntry.latitude, lastEntry.longitude);
-var myPoint = new H.geo.Point(42.605556, -5.57);
-var doneKm = myPoint.distance(stJeanPoint);
-var leftKm = myPoint.distance(santiagoPoint);
-window.DISTANCE_LEFT = Math.round((leftKm / (doneKm + leftKm)) * 769); // French Route is actually 769 km
-console.log(window.DISTANCE_LEFT + " km matkaa jäljellä...");
+  // Stupid calculation for getting distance to Santiage de Compostela
+  var stJeanPoint = new H.geo.Point(43.165, -1.2356);
+  var santiagoPoint = new H.geo.Point(42.877778, -8.544444);
+  var myPoint = new H.geo.Point(lastEntry.latitude, lastEntry.longitude);
+  //var myPoint = new H.geo.Point(42.605556, -5.57); // TEMP
+  var doneKm = myPoint.distance(stJeanPoint);
+  var leftKm = myPoint.distance(santiagoPoint);
+  distanceLeft = Math.round((leftKm / (doneKm + leftKm)) * 769); // French Route is actually 769 km
+}
 
 // Add map markers for most important location entries
 window.locationEntries.forEach(function(entry) {
@@ -160,3 +187,38 @@ router.calculateRoute(frenchWayRoutingParameters, onResult,
   function(error) {
     alert(error.message);
   });
+
+/* --------------------------------
+LOCATION LIST
+-------------------------------- */
+
+var locationListEl = document.getElementById('location-list');
+window.locationEntries.forEach(function(entry) {
+  if (locationListEl && entry.marker) {
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(entry.date + ": " + entry.place));
+    locationListEl.appendChild(li);
+  }
+});
+
+var currentLocationEl = document.querySelector('.current-location')
+if (lastEntry && currentLocationEl) {
+  currentLocationEl.innerText = lastEntry.place;
+}
+
+var divs = document.querySelectorAll('.distance-left');
+[].forEach.call(divs, function(el) {
+  el.innerText = distanceLeft;
+});
+
+/* --------------------------------
+MAP MODE
+-------------------------------- */
+
+if (window.location.hash === '#map') {
+  document.body.appendChild(mapContainerEl);
+  var mainContainerEl = document.getElementById("main-container");
+  mainContainerEl.parentNode.removeChild(mainContainerEl);
+  mapContainerEl.className = 'map-mode';
+  recenterMap();
+}

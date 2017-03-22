@@ -16,11 +16,11 @@ rm -rf $BUILDDIR
 cp -r $PUBLICDIR $BUILDDIR
 
 # Create location file for the frontend app
-# echo "window.locationEntries = " > "$BUILDDIR/js/location-data.js"
-# node "$LIBDIR/json-content.js" >> "$BUILDDIR/js/location-data.js"
+echo "window.locationEntries = " > "$BUILDDIR/js/location-data.js"
+node "$LIBDIR/json-content.js" >> "$BUILDDIR/js/location-data.js"
 
 # Copy test data in place instead of generating it
-cp "$PARENTDIR/test-data.js" "$BUILDDIR/js/location-data.js"
+#cp "$PARENTDIR/test-data.js" "$BUILDDIR/js/location-data.js"
 
 # Create a secrets files
 echo "window.HERE_APP_ID = \"$HERE_APP_ID\";" > "$BUILDDIR/js/secrets.js"

@@ -28,10 +28,72 @@
             type="text/javascript" charset="utf-8"></script>
     </head>
     <body>
+        <div id="main-container">
+            <p class="language-selection">
+                <a class="finnish" href="#" onclick="showEnglish()">In English</a>
+                <a class="english" href="#" onclick="showFinnish()">Suomeksi</a>
+            <p>
 
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+            <h1 class="finnish">Jounin vaellus</h1>
+            <h1 class="english">Jouni's camino</h1>
 
-        <div id="mapContainer" style="width: 100%; height: 400px;"></div>
+            <p class="finnish">
+                Olen päättänyt kävellä tänä keväänä Pohjois-Espanjan läpi noudattaen vanhaa
+                Santiago de Compostelan pyhiinvaellusreittiä. Tarkemmin sanoen, reittejä on
+                useampia, mutta minun valitsemaani kutsutaan <em>ranskalaiseksi tieksi</em>.
+                Se alkaa Ranskan ja Espanjan rajalta St. Jean-Pied-de-Portin kylästä, ja jatkuu
+                lähes Atlantin rannikolle Santiago de Compostelan katedraaliin. Matkaa tulee yhteensä 769 km, ja se kestää noin kuukauden. Aloitan matkani sunnuntaina
+                9. huhtikuuta 2017.
+            </p>
+            <p class="english">
+                I have decided to walk the ancient pilgrimage route of Santiago de Compostela
+                this spring. More precisely the route I'm going to walk is called <em>the French
+                Way</em>, it goes through the Northern Spain, is 769 km long and will take about
+                1 month to complete. The route starts from a small village of St.
+                Jead-Pied-de-Port on the border of France and Spain, and ends almost at the
+                coast of the Atlantic Sea, in the city of Santiago de Compostela. I will start
+                my journey on Sunday 9th of April 2017.
+            </p>
+
+            <h2 class="finnish">Missä olen tällä hetkellä?</h1>
+            <h2 class="english">My current location</h1>
+
+            <p>
+                <span class="current-location">---</span>
+            </p>
+
+            <div id="map-container"></div>
+
+            <h2 class="finnish">Kuvia ja kuulumisia</h1>
+            <h2 class="english">Pictures from the trip</h1>
+
+            <p class="finnish">
+                Kuulumisia matkaltani löydät
+                <a href="https://www.instagram.com/jounikaplas/">Instagram-sivultani</a>.
+            </p>
+            <p class="english">
+                You'll find my latest pics and stories from my 
+                <a href="https://www.instagram.com/jounikaplas/">Instagram profile</a>.
+            </p>
+
+            <h2 class="finnish">Matkani tähän mennessä</h1>
+            <h2 class="english">Where have I been so far</h1>
+
+            <ul id="location-list">
+            </ul>
+
+            <p class="finnish">
+                Matkaa on vielä jäljellä noin
+                <span class="distance-left">---</span>
+                km.
+            </p>
+            <p class="english">
+                There is still about 
+                <span class="distance-left">---</span>
+                km to travel.
+            </p>
+
+        </div>
 
         <script src="js/location-data.js"></script>
         <script src="js/secrets.js"></script>
