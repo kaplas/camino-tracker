@@ -9,12 +9,14 @@ function toggleDisplay(selector, value) {
   });
 }
 
-function showFinnish() {
+function showFinnish(e) {
+  e.preventDefault();
   toggleDisplay('.finnish', 'block');
   toggleDisplay('.english', 'none');
 }
 
-function showEnglish() {
+function showEnglish(e) {
+  e.preventDefault();
   toggleDisplay('.english', 'block');
   toggleDisplay('.finnish', 'none');
 }
