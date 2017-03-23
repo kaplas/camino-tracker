@@ -11,14 +11,12 @@ function toggleDisplay(selector, value) {
   });
 }
 
-function showFinnish(e) {
-  e.preventDefault();
+function showFinnish() {
   toggleDisplay('.finnish', 'block');
   toggleDisplay('.english', 'none');
 }
 
-function showEnglish(e) {
-  e.preventDefault();
+function showEnglish() {
   toggleDisplay('.english', 'block');
   toggleDisplay('.finnish', 'none');
 }
