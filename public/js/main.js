@@ -2,8 +2,6 @@
 LANGUAGE SELECTION
 -------------------------------- */
 
-console.log("test");
-
 function toggleDisplay(selector, value) {
   var divs = document.querySelectorAll(selector);
   [].forEach.call(divs, function(el) {

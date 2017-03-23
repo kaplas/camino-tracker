@@ -2,8 +2,9 @@
   "name": "camino-tracker",
   "version": "1.0.0",
   "description": "Map generator script for my pilgrimage of Santiago de Compostela",
-  "main": "lib/index.js",
+  "main": "lib/server.js",
   "scripts": {
+    "start": "node lib/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,7 +28,9 @@
     "array.prototype.find": "^2.0.3",
     "bluebird": "^3.4.7",
     "csvtojson": "^1.1.4",
+    "express": "^4.15.2",
     "lodash.get": "^4.4.2",
+    "memory-cache": "^0.1.6",
     "moment": "^2.17.1",
     "node-fetch": "^1.6.3"
   }
