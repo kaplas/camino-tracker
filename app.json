@@ -1,0 +1,8 @@
+{
+  "name": "Jouni's Camino Tracker",
+  "description": "Jouni's live version of the kaplas/camino-tracker",
+  "repository": "https://github.com/kaplas/camino-tracker",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
